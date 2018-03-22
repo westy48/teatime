@@ -34,7 +34,7 @@ def teatime():
         automationhat.relay.one.off()
         time.sleep(0.5)
     # Adds a random number to the end of the tweet to avoid duplicate tweet errors
-    # Replace the unsername and tweet text here with something appropriate for you  
+    # Replace the username and tweet text here with something appropriate for you  
     j = random.getrandbits(8)  
     api.update_status('@USERNAMEYOUWANTTOALERT tweet_you_want_to_send ',j)
 
@@ -61,4 +61,5 @@ l = random.getrandbits(6)
 api.update_status('@USERNAMEYOUWANTTOALERT wake_up_notification_tweet ',l)
 
 twitterstream = Stream(auth, listener())
-twitterstream.filter(track=['#teatimejack'])
+# Change the hashtag to the one you're interested in
+twitterstream.filter(track=['#hashtagyouwantnotifyingabout'])

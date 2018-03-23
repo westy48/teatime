@@ -1,7 +1,5 @@
 import automationhat
 import time
-import random
-import tweepy
 from tweepy import Stream, OAuthHandler
 from tweepy.streaming import StreamListener
 
@@ -33,10 +31,6 @@ def teatime():
         automationhat.output.one.off()
         automationhat.relay.one.off()
         time.sleep(0.5)
-    # Adds a random number to the end of the tweet to avoid duplicate tweet errors
-    # Replace the username and tweet text here with something appropriate for you  
-    j = random.getrandbits(8)  
-    api.update_status('@USERNAMEYOUWANTTOALERT tweet_you_want_to_send ',j)
 
 auth = OAuthHandler(ckey, csecret)
 auth.set_access_token(atoken, asecret)
@@ -56,9 +50,6 @@ for i in range(3):
 automationhat.relay.one.on()
 time.sleep(0.2)
 automationhat.relay.one.off()
-l = random.getrandbits(6)
-# Edit the Twitter account you want to alert and the text you'll send them
-api.update_status('@USERNAMEYOUWANTTOALERT wake_up_notification_tweet ',l)
 
 twitterstream = Stream(auth, listener())
 # Change the hashtag to the one you're interested in
